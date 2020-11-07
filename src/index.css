@@ -1,3 +1,7 @@
+* {
+   font-family: monospace;
+}
+
 body {
    display: flex;
    justify-content: center;

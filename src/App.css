@@ -1,4 +1,17 @@
-input {
+main {
+   padding: 2em;
+   box-shadow: 0 0 1em rgba(0,0,0,0.2);
+   border-radius: 2em 0 2em 0;
+   background: hsl(220, 23%, 97%);
+   font-size: 2rem;
+}
+
+main input {
+   display: block;
    outline: none;
-   font-size: 1rem;
+   width: 100%;
+   padding: 2px;
+}
+
+main button {
 }
