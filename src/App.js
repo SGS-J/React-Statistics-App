@@ -39,9 +39,11 @@ export default class App extends React.Component {
     return (
       <main onClick={e => this.handleClick(e.target)}>
         <input type="text" placeholder="Put your name here" />
-        <button className="insert">Click me</button>
-        <button className="undo">Undo</button>
-        <button className="redo">Redo</button>
+        <div>
+          <button className="insert">Add</button>
+          <button className="undo">Undo</button>
+          <button className="redo">Redo</button>
+        </div>
         <p>{actualLen < 1 ? "There're not names yet..." : names[pos]}</p>
       </main>
     );

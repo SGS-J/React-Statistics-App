@@ -1,5 +1,9 @@
 main {
+   display: grid !important;
+   grid-template-rows: repeat(3, 1fr);
+   gap: .5em;
    padding: 2em;
+   width: 15em;
    box-shadow: 0 0 1em rgba(0,0,0,0.2);
    border-radius: 2em 0 2em 0;
    background: hsl(220, 23%, 97%);
@@ -7,11 +11,19 @@ main {
 }
 
 main input {
-   display: block;
    outline: none;
-   width: 100%;
    padding: 2px;
+   height: 60%;
 }
 
-main button {
+main div {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+main div button {
+   height: 2em;
+   width: 30%;
+   cursor: pointer;
 }
