@@ -1,50 +1,28 @@
-/* eslint-disable default-case */
 import React from 'react';
+import DataInsert from './components/DataInsert';
+import Table from './components/Table';
 import './App.css';
 
 export default class App extends React.Component {
   state = {
-    names: [],
-    pos: 0,
+    history: [],
+    freqTable: [],
+    output: 0,
   };
 
-  handleClick = element => {
-    const className = element.className;
-    switch (className) {
-      case 'insert': {
-        const name = document.querySelector('input').value;
-        const names = this.state.names.concat(name);
-        name && this.setState({ names: names, pos: names.length - 1 });
-        break;
-      }
-
-      case 'undo': {
-        const pos = this.state.pos - 1;
-        this.setState({ pos: pos < 0 ? 0 : pos });
-        break;
-      }
-
-      case 'redo': {
-        const len = this.state.names.length - 1;
-        const pos = this.state.pos + 1;
-        this.setState({ pos: pos > len ? len : pos });
-      }
-    }
+  handleSubmit = () => {
+    const num = this.state.output === 1 ? 0 : 1;
+    this.setState({ output: num });
   };
 
   render() {
-    const names = this.state.names;
-    const pos = this.state.pos;
-    const actualLen = names.length;
+    const state = this.state.output;
+    const mainElement =
+      state === 0 ? <DataInsert /> : <Table data={this.state.freqTable} />;
     return (
-      <main onClick={e => this.handleClick(e.target)}>
-        <input type="text" placeholder="Put your name here" />
-        <div>
-          <button className="insert">Add</button>
-          <button className="undo">Undo</button>
-          <button className="redo">Redo</button>
-        </div>
-        <p>{actualLen < 1 ? "There're not names yet..." : names[pos]}</p>
+      <main id="main" className="{state === 0 ? 'insert' : 'result'}">
+        {mainElement}
+        <input onClick={this.handleSubmit} type="button" value="Calculate" />
       </main>
     );
   }

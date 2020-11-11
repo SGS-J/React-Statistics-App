@@ -1,15 +1,7 @@
-import { Component } from 'react';
+import React from 'react';
 
-function Row() {
-   return (
-
-   )
-}
-
-export default class Table extends Component {
+export default class Table extends React.Component {
    render() {
-      return (
-         
-      )
+      return <div>Table</div>
    }
 }
