@@ -45,13 +45,13 @@ export default class DataInsert extends React.Component {
       dataFreq: 1,
       dataValue: addValue + 1,
     });
-    const count = this.state.count;
-    this.setState({ data: newData, count: count + 1 });
+    const count = this.state.count + 1;
+    this.setState({ data: newData, count: count });
   };
 
   handleClickRemove = () => {
     const newData = this.state.data.slice(0, -1);
-    const count = this.state.count < 1 ? 1 : this.state.count - 1;
+    const count = this.state.count < 1 ? 0 : this.state.count - 1;
     this.setState({ data: newData, count: count});
   }
 
