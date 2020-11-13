@@ -27,11 +27,12 @@ export default class DataInsert extends React.Component {
         dataValue: 1,
       },
     ],
+    count: 1,
   };
 
   get createId() {
-    const len = this.state.data.length + 1;
-    const newValue = `${len * 10000}${String.fromCharCode((len % 64) + 64)}`;
+    const count = this.state.count + 1;
+    const newValue = `${count * 10000}${String.fromCharCode((count % 64) + 64)}`;
     return newValue;
   }
 
@@ -44,8 +45,15 @@ export default class DataInsert extends React.Component {
       dataFreq: 1,
       dataValue: addValue + 1,
     });
-    this.setState({ data: newData });
+    const count = this.state.count;
+    this.setState({ data: newData, count: count + 1 });
   };
+
+  handleClickRemove = () => {
+    const newData = this.state.data.slice(0, -1);
+    const count = this.state.count;
+    this.setState({ data: newData, count: count - 1});
+  }
 
   handleInsert = (target, id) => {
     const index = this.state.data.findIndex(val => val._id === id);
@@ -82,6 +90,7 @@ export default class DataInsert extends React.Component {
           <div className="table-data">{elements}</div>
         </section>
         <button onClick={this.handleClickAdd}>+</button>
+        <button onClick={this.handleClickRemove}>-</button>
       </React.Fragment>
     );
   }
