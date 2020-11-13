@@ -20,60 +20,55 @@ function DataValue({ freq, val, id, onInsert }) {
 
 export default class DataInsert extends React.Component {
   state = {
-    _id: ['10000A'],
-    dataFreq: [1],
-    dataValue: [1],
+    data: [
+      {
+        _id: '10000A',
+        dataFreq: 1,
+        dataValue: 1,
+      },
+    ],
   };
 
   get createId() {
-    const len = this.state._id.length + 1;
-    const newValue = `${len * 10000}${String.fromCharCode(len % 64 + 64)}`; 
+    const len = this.state.data.length + 1;
+    const newValue = `${len * 10000}${String.fromCharCode((len % 64) + 64)}`;
     return newValue;
   }
 
-  get mergeData() {
-    return this.state.dataFreq.map((freq, i) => [
-      freq,
-      this.state.dataValue[i],
-    ]);
-  }
-
   handleClickAdd = () => {
-    const actualData = this.mergeData;
+    const actualData = this.state.data.slice();
     const len = actualData.length;
-    const addValue = len < 1 ? 0 : actualData[len - 1][1];
-    const newData = actualData.concat([[1, addValue + 1]]);
-    const newFreq = newData.map(val => val[0]);
-    const newValue = newData.map(val => val[1]);
-    const newId = this.state._id.concat(this.createId);
-    this.setState({ _id: newId, dataFreq: newFreq, dataValue: newValue });
+    const addValue = len < 1 ? 0 : actualData[len - 1].dataValue;
+    const newData = actualData.concat({
+      _id: this.createId,
+      dataFreq: 1,
+      dataValue: addValue + 1,
+    });
+    this.setState({ data: newData });
   };
 
   handleInsert = (target, id) => {
-    const index = this.state._id.findIndex(val => val === id);
+    const index = this.state.data.findIndex(val => val._id === id);
     if ('freq' in target) {
-      const newDataFreq = this.state.dataFreq.slice();
-      newDataFreq[index] = target.freq;
-      this.setState({ dataFreq: newDataFreq });
+      const newDataFreq = this.state.data.slice();
+      newDataFreq[index].dataFreq = target.freq;
+      this.setState({ data: newDataFreq });
     } else {
-      const newDataValue = this.state.dataValue.slice();
-      newDataValue[index] = target.value;
-      this.setState({ dataValue: newDataValue });
+      const newDataValue = this.state.data.slice();
+      newDataValue[index].dataValue = target.value;
+      this.setState({ data: newDataValue });
     }
   };
 
   render() {
-    const dataFreq = this.state.dataFreq;
-    const dataValue = this.state.dataValue;
-    const ids = this.state._id;
-    const data = ids.map((id, i) => [id, dataFreq[i], dataValue[i]]);
+    const data = this.state.data;
     const elements = data.map(val => {
       return (
         <DataValue
-          key={val[0]}
-          id={val[0]}
-          freq={val[1]}
-          val={val[2]}
+          key={val._id}
+          id={val._id}
+          freq={val.dataFreq}
+          val={val.dataValue}
           onInsert={this.handleInsert}
         />
       );
