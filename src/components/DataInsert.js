@@ -51,8 +51,8 @@ export default class DataInsert extends React.Component {
 
   handleClickRemove = () => {
     const newData = this.state.data.slice(0, -1);
-    const count = this.state.count;
-    this.setState({ data: newData, count: count - 1});
+    const count = this.state.count < 1 ? 1 : this.state.count - 1;
+    this.setState({ data: newData, count: count});
   }
 
   handleInsert = (target, id) => {
