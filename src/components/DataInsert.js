@@ -20,10 +20,16 @@ function DataValue({ freq, val, id, onInsert }) {
 
 export default class DataInsert extends React.Component {
   state = {
-    _id: [],
+    _id: ['10000A'],
     dataFreq: [1],
     dataValue: [1],
   };
+
+  get createId() {
+    const len = this.state._id.length + 1;
+    const newValue = `${len * 10000}${String.fromCharCode(len % 64 + 64)}`; 
+    return newValue;
+  }
 
   get mergeData() {
     return this.state.dataFreq.map((freq, i) => [
@@ -39,12 +45,12 @@ export default class DataInsert extends React.Component {
     const newData = actualData.concat([[1, addValue + 1]]);
     const newFreq = newData.map(val => val[0]);
     const newValue = newData.map(val => val[1]);
-    this.setState({ dataFreq: newFreq, dataValue: newValue });
+    const newId = this.state._id.concat(this.createId);
+    this.setState({ _id: newId, dataFreq: newFreq, dataValue: newValue });
   };
 
   handleInsert = (target, id) => {
-    // debugger;
-    const index = this.state.dataValue.findIndex(val => val === id);
+    const index = this.state._id.findIndex(val => val === id);
     if ('freq' in target) {
       const newDataFreq = this.state.dataFreq.slice();
       newDataFreq[index] = target.freq;
@@ -60,14 +66,14 @@ export default class DataInsert extends React.Component {
     const dataFreq = this.state.dataFreq;
     const dataValue = this.state.dataValue;
     const ids = this.state._id;
-    const data = dataFreq.map((freq, i) => [freq, dataValue[i], ids[i]]);
+    const data = ids.map((id, i) => [id, dataFreq[i], dataValue[i]]);
     const elements = data.map(val => {
       return (
         <DataValue
-          key={val[2]}
-          id={val[2]}
-          freq={val[0]}
-          val={val[1]}
+          key={val[0]}
+          id={val[0]}
+          freq={val[1]}
+          val={val[2]}
           onInsert={this.handleInsert}
         />
       );
