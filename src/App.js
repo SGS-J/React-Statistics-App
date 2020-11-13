@@ -20,7 +20,7 @@ export default class App extends React.Component {
     const mainElement =
       state === 0 ? <DataInsert /> : <Table data={this.state.freqTable} />;
     return (
-      <main id="main" className="{state === 0 ? 'insert' : 'result'}">
+      <main id="main" className={state === 0 ? 'insert' : 'result'}>
         {mainElement}
         <input onClick={this.handleSubmit} type="button" value="Calculate" />
       </main>
