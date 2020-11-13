@@ -5,7 +5,6 @@ import './App.css';
 
 export default class App extends React.Component {
   state = {
-    history: [],
     freqTable: [],
     output: 0,
   };

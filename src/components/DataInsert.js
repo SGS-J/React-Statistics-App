@@ -1,18 +1,18 @@
 import React from 'react';
 import './DataInsert.css';
 
-function DataValue({ freq, val, id, onInsert }) {
+const DataValue = ({ self, onInsert }) => {
   return (
     <div className="data-value">
       <input
         type="number"
-        value={freq}
-        onChange={e => onInsert({ freq: Number(e.target.value) }, id)}
+        value={self.dataFreq}
+        onChange={e => onInsert({ freq: Number(e.target.value), id: self._id })}
       />
       <input
         type="number"
-        value={val}
-        onChange={e => onInsert({ value: Number(e.target.value) }, id)}
+        value={self.dataValue}
+        onChange={e => onInsert({ value: Number(e.target.value), id: self._id })}
       />
     </div>
   );
@@ -22,7 +22,7 @@ export default class DataInsert extends React.Component {
   state = {
     data: [
       {
-        _id: '10000A',
+        _id: '00001A',
         dataFreq: 1,
         dataValue: 1,
       },
@@ -32,7 +32,11 @@ export default class DataInsert extends React.Component {
 
   get createId() {
     const count = this.state.count + 1;
-    const newValue = `${count * 10000}${String.fromCharCode((count % 64) + 64)}`;
+    const digits =
+      count === 1 ? 1 : count === 10 ? 2 : Math.ceil(Math.log10(count));
+    const zeroValue = Math.log10(10000 / 10 ** (digits - 1));
+    const char = String.fromCharCode((count % 26) + 64);
+    const newValue = `${'0'.repeat(zeroValue)}${count}${char}`;
     return newValue;
   }
 
@@ -52,11 +56,11 @@ export default class DataInsert extends React.Component {
   handleClickRemove = () => {
     const newData = this.state.data.slice(0, -1);
     const count = this.state.count < 1 ? 0 : this.state.count - 1;
-    this.setState({ data: newData, count: count});
-  }
+    this.setState({ data: newData, count: count });
+  };
 
-  handleInsert = (target, id) => {
-    const index = this.state.data.findIndex(val => val._id === id);
+  handleInsert = target => {
+    const index = this.state.data.findIndex(val => val._id === target.id);
     if ('freq' in target) {
       const newDataFreq = this.state.data.slice();
       newDataFreq[index].dataFreq = target.freq;
@@ -69,14 +73,12 @@ export default class DataInsert extends React.Component {
   };
 
   render() {
-    const data = this.state.data;
-    const elements = data.map(val => {
+    const data = this.state.data.slice();
+    const elements = data.map((val, i) => {
       return (
         <DataValue
           key={val._id}
-          id={val._id}
-          freq={val.dataFreq}
-          val={val.dataValue}
+          self={this.state.data[i]}
           onInsert={this.handleInsert}
         />
       );
