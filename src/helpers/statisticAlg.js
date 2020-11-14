@@ -47,7 +47,8 @@ export default class Statistic {
     const countValues = table
       .map(el => el.freq * el.value)
       .reduce((acc, cur) => acc + cur);
-    return countValues / this.amount;
+    const result = countValues / this.amount;
+    return Number.isInteger(result) ? result : result.toFixed(2);
   }
 
   median() {
@@ -61,6 +62,7 @@ export default class Statistic {
       const first = table[firIndex].value;
       const second = table[secIndex].value;
       result = (first + second) / 2;
+      result = Number.isInteger(result) ? result : result.toFixed(2);
     } else {
       const pos = (len + 1) / 2;
       const index = table.findIndex(el => el.accFreq >= pos);
@@ -76,7 +78,8 @@ export default class Statistic {
       el => Math.abs(mean - el.value) * el.freq
     );
     const sum = values.reduce((acc, cur) => acc + cur);
-    return (sum / this.amount).toFixed(2);
+    const result = sum / this.amount;
+    return Number.isInteger(result) ? result : result.toFixed(2);
   }
 
   variance() {
@@ -85,14 +88,17 @@ export default class Statistic {
       el => Math.pow(mean - el.value, 2) * el.freq
     );
     const sum = values.reduce((acc, cur) => acc + cur);
-    return (sum / this.amount).toFixed(2);
+    const result = sum / this.amount;
+    return Number.isInteger(result) ? result : result.toFixed(2);
   }
 
   standardDeviation() {
-    return Math.sqrt(this.variance()).toFixed(2);
+    const result = Math.sqrt(this.variance());
+    return Number.isInteger(result) ? result : result.toFixed(2);
   }
 
   coefficientOfVar() {
-    return (this.standardDeviation() / this.amount).toFixed(2);
+    const result = this.standardDeviation() / this.amount;
+    return Number.isInteger(result) ? result : result.toFixed(2);
   }
 }
