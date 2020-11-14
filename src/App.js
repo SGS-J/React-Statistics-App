@@ -1,18 +1,18 @@
 import React from 'react';
 import DataInsert from './components/DataInsert';
-import Table from './components/Table';
-import createId from "./helpers/idCreator";
+import ResultTable from './components/ResultTable';
+import createId from './helpers/idCreator';
 import './App.css';
+
+const defaultData = {
+  _id: '00001A',
+  dataFreq: 1,
+  dataValue: 1,
+};
 
 export default class App extends React.Component {
   state = {
-    data: [
-      {
-        _id: '00001A',
-        dataFreq: 1,
-        dataValue: 1,
-      },
-    ],
+    data: [defaultData],
     output: 0,
     count: 1,
   };
@@ -50,12 +50,19 @@ export default class App extends React.Component {
   };
 
   handleSubmit = () => {
-    const num = this.state.output === 1 ? 0 : 1;
-    this.setState({ output: num });
+    let num = this.state.output;
+    if (num === 1) {
+      num = 0;
+      this.setState({ data: [defaultData], output: num, count: 1 });
+    } else {
+      num = 1;
+      this.setState({ output: num });
+    }
   };
 
   render() {
     const state = this.state.output;
+    const arrayEmpty = this.state.data.length < 1;
     const mainElement =
       state === 0 ? (
         <DataInsert
@@ -65,12 +72,17 @@ export default class App extends React.Component {
           onInsert={this.handleInsert}
         />
       ) : (
-        <Table data={this.state.data} />
+        <ResultTable data={this.state.data} />
       );
     return (
       <main id="main" className={state === 0 ? 'insert' : 'result'}>
         {mainElement}
-        <input onClick={this.handleSubmit} type="button" value="Calculate" />
+        <input
+          onClick={this.handleSubmit}
+          disabled={arrayEmpty}
+          type="button"
+          value={state === 0 ? 'Calculate' : 'Again'}
+        />
       </main>
     );
   }

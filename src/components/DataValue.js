@@ -11,7 +11,9 @@ export default function DataValue({ self, onInsert }) {
       <input
         type="number"
         value={self.dataValue}
-        onChange={e => onInsert({ value: Number(e.target.value), id: self._id })}
+        onChange={e =>
+          onInsert({ value: Number(e.target.value), id: self._id })
+        }
       />
     </div>
   );
