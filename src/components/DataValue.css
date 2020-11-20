@@ -1,15 +1,14 @@
-td input{
-   display: block;
-   width: 100% !important;
+.inputs input {
+   width: 50% !important;
    border: none;
    border-bottom: 2px solid rgba(88, 206, 88, 0.863);
    border-radius: 2px;
    background: transparent;
    outline: none;
-   font-size: 2em;
+   font-size: 2.1em;
 }
 
-td input:hover {
+.inputs input:hover {
    border-bottom: 2px solid rgb(35, 172, 35);
 }
 

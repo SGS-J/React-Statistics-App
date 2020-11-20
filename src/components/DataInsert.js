@@ -18,16 +18,12 @@ export default function DataInsert(props) {
 
   return (
     <section id="data-insert">
-      <div className="custom-table overflow-auto">
-        <table>
-          <thead className="title-insert">
-            <tr>
-              <th>Frequency</th>
-              <th>Value</th>
-            </tr>
-          </thead>
-          <tbody>{elements}</tbody>
-        </table>
+      <div className="custom-table">
+        <div className="table-head">
+          <span>Frequency</span>
+          <span>Value</span>
+        </div>
+        <div className="table-elements">{elements}</div>
       </div>
       <div className="buttons">
         <button onClick={props.onClickAdd}>+</button>

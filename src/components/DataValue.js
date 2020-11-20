@@ -3,8 +3,7 @@ import './DataValue.css';
 
 export default function DataValue({ id, dataFreq, dataValue, onInsert }) {
   return (
-    <tr>
-      <td>
+    <div className="inputs">
         <input
           className="insert"
           type="number"
@@ -13,8 +12,6 @@ export default function DataValue({ id, dataFreq, dataValue, onInsert }) {
             onInsert({ freq: Number(e.target.value), id: id })
           }
         />
-      </td>
-      <td>
         <input
           className="insert"
           type="number"
@@ -23,7 +20,6 @@ export default function DataValue({ id, dataFreq, dataValue, onInsert }) {
             onInsert({ value: Number(e.target.value), id: id })
           }
         />
-      </td>
-    </tr>
+    </div>
   );
 }

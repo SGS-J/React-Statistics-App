@@ -9,14 +9,6 @@
   box-shadow: 0 0 1ex rgba(0, 0, 0, 0.5);
 }
 
-#main section {
-  height: 100%;
-}
-
-/* #main section[class="insert"]{
-  position: relative;
-} */
-
 #main .btn {
   align-self: center;
   width: 50%;
