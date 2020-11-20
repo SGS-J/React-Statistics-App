@@ -37,15 +37,18 @@ export default class App extends React.Component {
   };
 
   handleInsert = target => {
-    const index = this.state.data.findIndex(val => val._id === target.id);
-    if ('freq' in target) {
-      const newDataFreq = this.state.data.slice();
-      newDataFreq[index].dataFreq = target.freq;
-      this.setState({ data: newDataFreq });
-    } else {
-      const newDataValue = this.state.data.slice();
-      newDataValue[index].dataValue = target.value;
-      this.setState({ data: newDataValue });
+    const mainValue = Object.keys(target)[0];
+    if(target[mainValue] > 0) {
+      const index = this.state.data.findIndex(val => val._id === target.id);
+      if (mainValue === 'freq') {
+        const newDataFreq = this.state.data.slice();
+        newDataFreq[index].dataFreq = target.freq;
+        this.setState({ data: newDataFreq });
+      } else {
+        const newDataValue = this.state.data.slice();
+        newDataValue[index].dataValue = target.value;
+        this.setState({ data: newDataValue });
+      }
     }
   };
 
@@ -74,15 +77,18 @@ export default class App extends React.Component {
       ) : (
         <ResultTable data={this.state.data} />
       );
+
     return (
-      <main id="main" className={state === 0 ? 'insert' : 'result'}>
+      <main id="main">
         {mainElement}
-        <input
+        <button
+          className="btn btn-outline-success shadow-none"
           onClick={this.handleSubmit}
           disabled={arrayEmpty}
           type="button"
-          value={state === 0 ? 'Calculate' : 'Again'}
-        />
+        >
+          {state === 0 ? 'Calculate' : 'Again'}
+        </button>
       </main>
     );
   }

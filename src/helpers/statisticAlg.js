@@ -22,18 +22,48 @@ export default class Statistic {
   }
 
   get measurements() {
-    return {
-      mode: this.mode(),
-      median: this.median(),
-      mean: this.mean(),
-      maximum: this.maximum,
-      minimum: this.minimum,
-      range: this.range,
-      meanDeviation: this.meanDeviation(),
-      variance: this.variance(),
-      standardDeviation: this.standardDeviation(),
-      coefficientOfVar: this.coefficientOfVar(),
-    };
+    return [
+      {
+        name: 'Mode',
+        value:this.mode(),
+      },
+      {
+        name: 'Median',
+        value: this.median(),
+      },
+      {
+        name: 'Mean',
+        value: this.mean(),
+      },
+      {
+        name: 'Maximum',
+        value: this.maximum,
+      },
+      {
+        name: 'Minimum',
+        value: this.minimum,
+      },
+      {
+        name: 'Range',
+        value: this.range,
+      },
+      {
+        name: 'Mean Deviation',
+        value: this.meanDeviation(),
+      },
+      {
+        name: 'Variance',
+        value: this.variance(),
+      },
+      {
+        name: 'Standard deviation',
+        value: this.standardDeviation(),
+      },
+      {
+        name: 'Coefficient of variation',
+        value: this.coefficientOfVar(),
+      }
+    ];
   }
 
   mode() {

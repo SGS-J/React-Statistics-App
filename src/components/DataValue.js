@@ -1,20 +1,29 @@
 import React from 'react';
+import './DataValue.css';
 
-export default function DataValue({ self, onInsert }) {
+export default function DataValue({ id, dataFreq, dataValue, onInsert }) {
   return (
-    <div className="data-value">
-      <input
-        type="number"
-        value={self.dataFreq}
-        onChange={e => onInsert({ freq: Number(e.target.value), id: self._id })}
-      />
-      <input
-        type="number"
-        value={self.dataValue}
-        onChange={e =>
-          onInsert({ value: Number(e.target.value), id: self._id })
-        }
-      />
-    </div>
+    <tr>
+      <td>
+        <input
+          className="insert"
+          type="number"
+          value={dataFreq}
+          onChange={e =>
+            onInsert({ freq: Number(e.target.value), id: id })
+          }
+        />
+      </td>
+      <td>
+        <input
+          className="insert"
+          type="number"
+          value={dataValue}
+          onChange={e =>
+            onInsert({ value: Number(e.target.value), id: id })
+          }
+        />
+      </td>
+    </tr>
   );
 }

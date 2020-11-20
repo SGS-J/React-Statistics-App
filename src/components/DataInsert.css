@@ -1,2 +1,24 @@
-.data-value {
+#data-insert {
+   display: flex;
+   flex-direction: column;
+}
+
+.custom-table {
+   flex: 1 1 auto;
+   margin: 0;
+}
+
+.title-insert th {
+   padding: 0 1.2em 0 1.2em;
+   margin: 0;
+}
+
+.buttons {
+   position: relative;
+   bottom: 0;
+}
+
+.buttons button {
+   height: 2em;
+   width: 2em;
 }
