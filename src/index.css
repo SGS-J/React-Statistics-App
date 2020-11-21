@@ -11,11 +11,16 @@
 }
 
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
   background: #c9d6ff;
   background: -webkit-linear-gradient(to right, #e2e2e2, #c9d6ff);
   background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+}
+
+#main-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw; 
+  height: 100vh;
+  margin: 0;
 }

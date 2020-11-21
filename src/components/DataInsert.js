@@ -21,21 +21,21 @@ export default function DataInsert(props) {
       <table className="custom-table">
         <thead className="table-head">
           <tr>
-            <th scope="col">Frequency</th>
-            <th scope="col">Value</th>
+            <th scope="col">Frequency :</th>
+            <th scope="col">Value :</th>
           </tr>
         </thead>
         <tbody className="table-elements">{elements}</tbody>
       </table>
       <div className="buttons">
         <button
-          className="btn btn-outline-success shadow-none"
+          className="btn btn-outline-default shadow-none"
           onClick={props.onClickAdd}
         >
           +
         </button>
         <button
-          className="btn btn-outline-success shadow-none"
+          className="btn btn-outline-default shadow-none"
           onClick={props.onClickRemove}
         >
           -

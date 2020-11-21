@@ -14,7 +14,7 @@
 .custom-table::before {
    content: '';
    position: absolute;
-   height: 90%;
+   height: 86%;
    width: 1px;
    background: var(--green);
    left: 50%;
@@ -25,12 +25,13 @@
    display: block;
    width: 100%;
    color: var(--green);
+   font-size: 1.3em;
+   font-weight: 600;
 }
 
 .table-head tr th {
    display: inline-block;
    width: 50%;
-   padding: 0 1.2em 0 1.2em;
    user-select: none;
 }
 
@@ -40,11 +41,13 @@
    border: 1px solid var(--green);
    border-bottom: none;
    border-radius: 1ex 1ex 0 0;
+   padding-bottom: .6em;
    overflow-y: auto;
 }
 
+
 .table-elements::-webkit-scrollbar {
-   width: .7em;
+   width: 1em;
 }
 
 .table-elements::-webkit-scrollbar-track {
@@ -57,8 +60,8 @@
    border-radius: 1ex;
 }
 
-.table-elements::-webkit-scrollbar-thumb:hover{
-   background: var(--dark-green); 
+.table-elements::-webkit-scrollbar-thumb:hover {
+   background: var(--dark-green);
 }
 
 .buttons {
@@ -74,4 +77,10 @@
 .buttons .btn {
    height: 70%;
    width: 15% !important;
+}
+
+@media screen and (min-width: 768px) {
+   .table-elements::-webkit-scrollbar {
+      width: .7em;
+   }
 }

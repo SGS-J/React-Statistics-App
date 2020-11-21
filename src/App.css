@@ -1,4 +1,5 @@
 #main {
+  flex: 1 1 auto;
   display: flex;
   flex-direction: column;
   justify-items: center;
@@ -13,10 +14,33 @@
   align-self: center;
   width: 50%;
   bottom: 0;
+  font-size: 1.1em;
+  font-weight: 600;
 }
 
 .btn:focus,
 .btn:active {
    outline: none !important;
    box-shadow: none;
+}
+
+.btn-outline-default,
+.btn-outline-default-disabled {
+  border: 1px solid var(--green);
+  color: var(--green);
+}
+
+.btn-outline-default:hover {
+  background: var(--green);
+  color: #fff;
+}
+
+.btn-outline-default-disabled {
+  pointer-events: none;
+}
+
+@media screen and (min-width: 768px) {
+  #main {
+    max-width: 470px;
+  }
 }

@@ -9,11 +9,19 @@
    background: transparent;
    outline: none;
    font-size: 2.1em;
+   font-weight: 600;
    color: rgb(77, 80, 76);
+   transition: border .2s;
 }
 
-.inputs input:hover {
+.inputs input:hover,
+.inputs input:focus {
    border-bottom: 2px solid var(--green);
+}
+
+.inputs input::selection {
+   background: var(--light-green);
+   color: #fff;
 }
 
 input[type=number]::-webkit-inner-spin-button, 

@@ -3,4 +3,17 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import './index.css';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+/*
+   This Index function was created to use 
+   Bootstrap responsive classes in a parent 
+   container and thus avoid to modify the main App.
+*/
+function Index() {
+  return (
+    <div id="main-box" className="row">
+      <App />
+    </div>
+  );
+}
+
+ReactDOM.render(<Index />, document.getElementById('root'));

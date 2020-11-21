@@ -81,11 +81,15 @@ export default class App extends React.Component {
         <ResultTable data={this.state.data} />
       );
 
+    const btnClasses = `btn shadow-none btn-outline-default${
+      arrayEmpty ? '-disabled' : ''
+    }`;
+
     return (
-      <main id="main">
+      <main id="main" className="col-12 col-md-6">
         {mainElement}
         <button
-          className="btn btn-outline-success shadow-none"
+          className={btnClasses}
           onClick={this.handleSubmit}
           disabled={arrayEmpty}
           type="button"
