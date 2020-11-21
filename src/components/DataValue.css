@@ -1,15 +1,15 @@
 .inputs input {
-   width: 50% !important;
+   width: 48% !important;
    border: none;
-   border-bottom: 2px solid rgba(88, 206, 88, 0.863);
-   border-radius: 2px;
+   border-bottom: 2px solid rgba(115, 206, 115, 0.863);
    background: transparent;
    outline: none;
    font-size: 2.1em;
+   color: rgb(77, 80, 76);
 }
 
 .inputs input:hover {
-   border-bottom: 2px solid rgb(35, 172, 35);
+   border-bottom: 2px solid rgb(69, 194, 69);
 }
 
 input[type=number]::-webkit-inner-spin-button, 

@@ -11,6 +11,7 @@
 
 .table-head {
    padding: 0 1em 0 1em;
+   color: rgb(52, 177, 52);
 }
 
 .table-head span {
@@ -27,12 +28,14 @@
 }
 
 .buttons {
-   position: relative;
-   bottom: 0;
+   display: flex;
+   justify-content: space-evenly;
+   align-items: baseline;
    height: 20%;
+   padding: 0 1em 0 1em;
 }
 
-.buttons button {
-   height: 2em;
-   width: 2em;
+.buttons .btn {
+   height: 70%;
+   width: 15% !important;
 }

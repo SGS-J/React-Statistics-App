@@ -1,5 +1,5 @@
-export default function createId(param) {
-  const count = param + 1;
+export default function genId(count) {
+  count++;
   const digits =
     count === 1 ? 1 : count === 10 ? 2 : Math.ceil(Math.log10(count));
   const zeroValue = Math.log10(10000 / 10 ** (digits - 1));

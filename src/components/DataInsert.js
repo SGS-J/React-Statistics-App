@@ -26,8 +26,8 @@ export default function DataInsert(props) {
         <div className="table-elements">{elements}</div>
       </div>
       <div className="buttons">
-        <button onClick={props.onClickAdd}>+</button>
-        <button onClick={props.onClickRemove}>-</button>
+        <button className="btn btn-outline-success shadow-none" onClick={props.onClickAdd}>+</button>
+        <button className="btn btn-outline-success shadow-none" onClick={props.onClickRemove}>-</button>
       </div>
     </section>
   );

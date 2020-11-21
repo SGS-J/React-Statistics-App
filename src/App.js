@@ -1,7 +1,7 @@
 import React from 'react';
 import DataInsert from './components/DataInsert';
 import ResultTable from './components/ResultTable';
-import createId from './helpers/idCreator';
+import genId from './helpers/idCreator';
 import './App.css';
 
 const defaultData = {
@@ -11,18 +11,21 @@ const defaultData = {
 };
 
 export default class App extends React.Component {
-  state = {
-    data: [defaultData],
-    output: 0,
-    count: 1,
-  };
+  constructor() {
+    super();
+    this.state = {
+      data: [defaultData],
+      output: 0,
+      count: 1,
+    };
+  }
 
   handleClickAdd = () => {
     const actualData = this.state.data.slice();
     const len = actualData.length;
     const addValue = len < 1 ? 0 : actualData[len - 1].dataValue;
     const newData = actualData.concat({
-      _id: createId(this.state.count),
+      _id: genId(this.state.count),
       dataFreq: 1,
       dataValue: addValue + 1,
     });
@@ -38,7 +41,7 @@ export default class App extends React.Component {
 
   handleInsert = target => {
     const mainValue = Object.keys(target)[0];
-    if(target[mainValue] > 0) {
+    if (target[mainValue] > 0) {
       const index = this.state.data.findIndex(val => val._id === target.id);
       if (mainValue === 'freq') {
         const newDataFreq = this.state.data.slice();
