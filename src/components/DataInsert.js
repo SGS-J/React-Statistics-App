@@ -18,16 +18,28 @@ export default function DataInsert(props) {
 
   return (
     <section id="data-insert">
-      <div className="custom-table">
-        <div className="table-head">
-          <span>Frequency</span>
-          <span>Value</span>
-        </div>
-        <div className="table-elements">{elements}</div>
-      </div>
+      <table className="custom-table">
+        <thead className="table-head">
+          <tr>
+            <th scope="col">Frequency</th>
+            <th scope="col">Value</th>
+          </tr>
+        </thead>
+        <tbody className="table-elements">{elements}</tbody>
+      </table>
       <div className="buttons">
-        <button className="btn btn-outline-success shadow-none" onClick={props.onClickAdd}>+</button>
-        <button className="btn btn-outline-success shadow-none" onClick={props.onClickRemove}>-</button>
+        <button
+          className="btn btn-outline-success shadow-none"
+          onClick={props.onClickAdd}
+        >
+          +
+        </button>
+        <button
+          className="btn btn-outline-success shadow-none"
+          onClick={props.onClickRemove}
+        >
+          -
+        </button>
       </div>
     </section>
   );
