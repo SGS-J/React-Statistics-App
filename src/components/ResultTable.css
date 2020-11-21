@@ -1,8 +1,28 @@
-table {
-   flex: 1 1;
-   width: 100%;
+#data-measurements {
+   height: 100%;
+   border-radius: 1ex;
+   margin-bottom: 1em;
+   overflow: auto;
 }
 
-td {
-   padding: 0 1em 0 1em;
+#data-measurements .table-striped>tbody>tr:nth-child(odd)>td {
+   background: var(--light-green);
+}
+
+#data-measurements::-webkit-scrollbar {
+   width: .7em;
+}
+
+#data-measurements::-webkit-scrollbar-track {
+   background: var(--light-green);
+   border-radius: 1ex;
+}
+
+#data-measurements::-webkit-scrollbar-thumb {
+   background: var(--green);
+   border-radius: 1ex;
+}
+
+#data-measurements::-webkit-scrollbar-thumb:hover{
+   background: var(--dark-green); 
 }

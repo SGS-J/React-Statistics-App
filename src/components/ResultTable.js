@@ -13,8 +13,10 @@ export default function ResultTable({ data }) {
   ));
 
   return (
-    <table>
-      <tbody>{elements}</tbody>
-    </table>
+    <section id="data-measurements" className="table-responsive">
+      <table className="result-table table table-striped">
+        <tbody className="table-values">{elements}</tbody>
+      </table>
+    </section>
   );
 }
