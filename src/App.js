@@ -81,7 +81,7 @@ export default class App extends React.Component {
         <ResultTable data={this.state.data} />
       );
 
-    const btnClasses = `btn shadow-none btn-outline-default${
+    const btnClasses = `btn btn-main shadow-none btn-outline-default${
       arrayEmpty ? '-disabled' : ''
     }`;
 

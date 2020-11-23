@@ -9,7 +9,7 @@
    background: transparent;
    outline: none;
    font-size: 2.1em;
-   font-weight: 600;
+   font-weight: 500;
    color: rgb(77, 80, 76);
    transition: border .2s;
 }
@@ -24,6 +24,7 @@
    color: #fff;
 }
 
+/* Removes aside spin arrows of input type number*/
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
   -webkit-appearance: none; 

@@ -18,6 +18,7 @@ export default function DataInsert(props) {
 
   return (
     <section id="data-insert">
+      <button className="btn btn-help shadow-none">?</button>
       <table className="custom-table">
         <thead className="table-head">
           <tr>

@@ -11,15 +11,18 @@
 }
 
 #main .btn {
-  align-self: center;
-  width: 50%;
-  bottom: 0;
   font-size: 1.1em;
   font-weight: 600;
 }
 
-.btn:focus,
-.btn:active {
+#main .btn-main {
+  align-self: center;
+  width: 50%;
+  bottom: 0;
+}
+
+#main .btn:focus,
+#main .btn:active {
    outline: none !important;
    box-shadow: none;
 }

@@ -1,7 +1,26 @@
 #data-insert {
+   position: relative;
    height: 100%;
    overflow: hidden;
    margin-bottom: 1em;
+}
+
+.btn-help {
+   position: absolute;
+   top: 1%;
+   right: 0;
+   border: none;
+   outline: none;
+   background: transparent;
+   padding: 0 1em 0 1em;
+   background: var(--green);
+   color: #fff;
+   z-index: 100;
+}
+
+.btn-help:hover {
+   background: var(--dark-green);
+   color: #fff;
 }
 
 .custom-table {
@@ -75,6 +94,7 @@
 }
 
 .buttons .btn {
+   align-self: center;
    height: 70%;
    width: 15% !important;
 }

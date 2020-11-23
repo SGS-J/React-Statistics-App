@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 
 :root {
-    --dark-green: rgb(51, 129, 51);
-   --green: rgb(52, 177, 52);
-   --light-green: rgba(115, 206, 115, 0.863)
+  --dark-green: rgb(51, 129, 51);
+  --green: rgb(52, 177, 52);
+  --light-green: rgba(115, 206, 115, 0.863)
 }
 
 * {
@@ -20,7 +20,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw; 
+  width: 100vw;
   height: 100vh;
   margin: 0;
 }

@@ -6,9 +6,13 @@
 }
 
 #data-measurements tr {
-   font-weight: 900;
+   font-weight: 700;
    font-size: 1.5em;
-   user-select: none;
+}
+
+#data-measurements tr td::selection {
+   background: var(--dark-green);
+   color: #fff;
 }
 
 #data-measurements .table-striped>tbody>tr:nth-child(odd)>td {
