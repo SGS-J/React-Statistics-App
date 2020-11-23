@@ -5,7 +5,7 @@
    margin-bottom: 1em;
 }
 
-.btn-help {
+#data-insert .btn-help {
    position: absolute;
    top: 1%;
    right: 0;
@@ -16,11 +16,16 @@
    background: var(--green);
    color: #fff;
    z-index: 100;
+   cursor: default;
 }
 
 .btn-help:hover {
    background: var(--dark-green);
    color: #fff;
+}
+
+.btn-help:hover + #helpWin {
+   opacity: 1;
 }
 
 .custom-table {
