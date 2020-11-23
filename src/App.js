@@ -2,6 +2,7 @@ import React from 'react';
 import DataInsert from './components/DataInsert';
 import ResultTable from './components/ResultTable';
 import genId from './helpers/idCreator';
+import ReturnIcon from './assets/return.png';
 import './App.css';
 
 const defaultData = {
@@ -18,6 +19,11 @@ export default class App extends React.Component {
       output: 0,
       count: 1,
     };
+  }
+
+  // Preload the icon return first.
+  componentDidMount() {
+    this.iconReturn = <img alt="return" src={ReturnIcon}></img>;
   }
 
   handleClickAdd = () => {
@@ -85,6 +91,8 @@ export default class App extends React.Component {
       arrayEmpty ? '-disabled' : ''
     }`;
 
+    const btnContent = state === 0 ? 'Calculate' : this.iconReturn;
+
     return (
       <main id="main" className="col-12 col-md-6">
         {mainElement}
@@ -94,7 +102,7 @@ export default class App extends React.Component {
           disabled={arrayEmpty}
           type="button"
         >
-          {state === 0 ? 'Calculate' : 'Again'}
+          {btnContent}
         </button>
       </main>
     );

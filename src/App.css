@@ -5,6 +5,7 @@
   justify-items: center;
   height: 25em;
   width: 25em;
+  border-radius: 1ex;
   background: #fffe;
   padding: 1em;
   box-shadow: 0 0 1ex rgba(0, 0, 0, 0.5);
@@ -19,6 +20,15 @@
   align-self: center;
   width: 50%;
   bottom: 0;
+}
+
+#main .btn-main img {
+  width: 10%;
+  height: 10%;
+}
+
+#main .btn-main:hover>img {
+  filter: brightness(0) invert();
 }
 
 #main .btn:focus,

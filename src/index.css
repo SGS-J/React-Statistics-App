@@ -3,7 +3,8 @@
 :root {
   --dark-green: rgb(51, 129, 51);
   --green: rgb(52, 177, 52);
-  --light-green: rgba(115, 206, 115, 0.863)
+  --light-green: rgba(115, 206, 115, 0.863);
+  --shadow-green: rgba(38, 190, 0, 0.3);
 }
 
 * {
