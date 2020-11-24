@@ -6,7 +6,7 @@ import './index.css';
 /*
    This Index function was created to use 
    Bootstrap responsive classes in a parent 
-   container and thus avoid to modify the main App.
+   container to avoid modifying the main App.
 */
 function Index() {
   return (
