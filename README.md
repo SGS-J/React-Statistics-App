@@ -6,9 +6,9 @@ An application that calculates all measurements of a statistic frequency table.
 * Bootstrap
 
 ## Preview
-[Preview-insert](./docs/screenshot_insert.png)
+![Preview-insert](./docs/screenshot_insert.png)
 ***
-[Preview-result](./docs/screenshot_result.png)
+![Preview-result](./docs/screenshot_result.png)
 
 ## Available Scripts
 
