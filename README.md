@@ -1,4 +1,4 @@
-##### Statistics App
+# Statistics App
 An application that calculates all measurements of a statistic frequency table.
 
 ### Technologies
