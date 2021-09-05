@@ -19,6 +19,7 @@ export default class App extends React.Component {
       output: 0,
       count: 1,
     };
+    this.iconReturn = null;
   }
 
   // Preload the icon return first.
