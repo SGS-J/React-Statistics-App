@@ -25,6 +25,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# code editor
+.idea
+
 # others
 linkDeploy.txt
 .prettier.rc.json

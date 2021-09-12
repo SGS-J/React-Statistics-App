@@ -3,8 +3,8 @@ import DataValue from './DataValue';
 import HelpWindow from './HelpWindow';
 import './DataInsert.css';
 
-export default function DataInsert(props) {
-    const data = props.data.slice();
+export default function DataInsert({ data, onClickAdd, onClickRemove, onInsert }) {
+    const elementData = data.slice();
     const elements = data.map(val => {
       return (
         <DataValue
@@ -12,7 +12,7 @@ export default function DataInsert(props) {
           id={val._id}
           dataFreq={val.dataFreq}
           dataValue={val.dataValue}
-          onInsert={props.onInsert}
+          onInsert={onInsert}
         />
       );
     });
@@ -33,13 +33,13 @@ export default function DataInsert(props) {
         <div className="buttons">
           <button
             className="btn btn-outline-default shadow-none"
-            onClick={props.onClickAdd}
+            onClick={onClickAdd}
           >
             +
           </button>
           <button
             className="btn btn-outline-default shadow-none"
-            onClick={props.onClickRemove}
+            onClick={onClickRemove}
           >
             -
           </button>
